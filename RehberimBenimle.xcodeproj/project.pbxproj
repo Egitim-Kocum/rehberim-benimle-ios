@@ -12,8 +12,19 @@
 		0A46D00E2E8C2C1400A073EE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0A46D00D2E8C2C1400A073EE /* Kingfisher */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2453ED7B2E9BEAA4001C4479 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A46CFBB2E8C254100A073EE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0A46CFC22E8C254100A073EE;
+			remoteInfo = RehberimBenimle;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0A46CFC32E8C254100A073EE /* RehberimBenimle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RehberimBenimle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2453ED772E9BEAA4001C4479 /* RehberimBenimleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RehberimBenimleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -35,6 +46,11 @@
 			path = RehberimBenimle;
 			sourceTree = "<group>";
 		};
+		2453ED782E9BEAA4001C4479 /* RehberimBenimleTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = RehberimBenimleTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +64,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2453ED742E9BEAA3001C4479 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -55,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				0A46CFC52E8C254100A073EE /* RehberimBenimle */,
+				2453ED782E9BEAA4001C4479 /* RehberimBenimleTests */,
 				0A46CFC42E8C254100A073EE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				0A46CFC32E8C254100A073EE /* RehberimBenimle.app */,
+				2453ED772E9BEAA4001C4479 /* RehberimBenimleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +120,29 @@
 			productReference = 0A46CFC32E8C254100A073EE /* RehberimBenimle.app */;
 			productType = "com.apple.product-type.application";
 		};
+		2453ED762E9BEAA3001C4479 /* RehberimBenimleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2453ED7D2E9BEAA4001C4479 /* Build configuration list for PBXNativeTarget "RehberimBenimleTests" */;
+			buildPhases = (
+				2453ED732E9BEAA3001C4479 /* Sources */,
+				2453ED742E9BEAA3001C4479 /* Frameworks */,
+				2453ED752E9BEAA3001C4479 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2453ED7C2E9BEAA4001C4479 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				2453ED782E9BEAA4001C4479 /* RehberimBenimleTests */,
+			);
+			name = RehberimBenimleTests;
+			packageProductDependencies = (
+			);
+			productName = RehberimBenimleTests;
+			productReference = 2453ED772E9BEAA4001C4479 /* RehberimBenimleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -102,11 +150,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1640;
+				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					0A46CFC22E8C254100A073EE = {
 						CreatedOnToolsVersion = 16.4;
+					};
+					2453ED762E9BEAA3001C4479 = {
+						CreatedOnToolsVersion = 26.0;
+						TestTargetID = 0A46CFC22E8C254100A073EE;
 					};
 				};
 			};
@@ -130,12 +182,20 @@
 			projectRoot = "";
 			targets = (
 				0A46CFC22E8C254100A073EE /* RehberimBenimle */,
+				2453ED762E9BEAA3001C4479 /* RehberimBenimleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0A46CFC12E8C254100A073EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2453ED752E9BEAA3001C4479 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -152,7 +212,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2453ED732E9BEAA3001C4479 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2453ED7C2E9BEAA4001C4479 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0A46CFC22E8C254100A073EE /* RehberimBenimle */;
+			targetProxy = 2453ED7B2E9BEAA4001C4479 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0A46CFD72E8C254300A073EE /* Debug */ = {
@@ -332,6 +407,48 @@
 			};
 			name = Release;
 		};
+		2453ED7E2E9BEAA4001C4479 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RehberimBenimle.RehberimBenimleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RehberimBenimle.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RehberimBenimle";
+			};
+			name = Debug;
+		};
+		2453ED7F2E9BEAA4001C4479 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RehberimBenimle.RehberimBenimleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RehberimBenimle.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RehberimBenimle";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -349,6 +466,15 @@
 			buildConfigurations = (
 				0A46CFD72E8C254300A073EE /* Debug */,
 				0A46CFD82E8C254300A073EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2453ED7D2E9BEAA4001C4479 /* Build configuration list for PBXNativeTarget "RehberimBenimleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2453ED7E2E9BEAA4001C4479 /* Debug */,
+				2453ED7F2E9BEAA4001C4479 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
