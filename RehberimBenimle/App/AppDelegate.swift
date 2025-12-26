@@ -14,7 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        configureDependencies()
         return true
+    }
+    
+    private func configureDependencies() {
+        _ = DependencyContainer.shared
     }
 
     // MARK: UISceneSession Lifecycle
