@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import RehberimBenimleFeatures
 
 final class LoginFlowTests: BaseUITestCase {
 

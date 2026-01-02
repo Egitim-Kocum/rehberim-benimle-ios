@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RehberimBenimleFeatures
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
