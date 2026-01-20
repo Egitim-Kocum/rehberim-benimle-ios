@@ -11,6 +11,8 @@ public enum ValidationError: LocalizedError {
     case empty(field: String)
     case invalidEmail
     case passwordTooShort(min: Int)
+    case passwordsDoNotMatch
+    case notSelected(field: String)
 
     public var errorDescription: String? {
         switch self {
@@ -20,6 +22,10 @@ public enum ValidationError: LocalizedError {
             return "Geçerli bir email adresi giriniz."
         case .passwordTooShort(let min):
             return "Şifre en az \(min) karakter olmalıdır."
+        case .passwordsDoNotMatch:
+            return "Şifreler uyuşmuyor."
+        case .notSelected(field: let field):
+            return "\(field) alanı seçilmedi. Lütfen tekrar deneyin."
         }
     }
 }

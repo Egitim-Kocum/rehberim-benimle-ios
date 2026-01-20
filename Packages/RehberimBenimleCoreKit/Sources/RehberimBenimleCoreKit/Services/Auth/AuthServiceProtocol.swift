@@ -7,4 +7,5 @@
 
 public protocol AuthServiceProtocol: Sendable {
     func login(email: String, password: String) async throws
+    func signup(role: String, fullName: String, email: String, password: String) async throws
 }

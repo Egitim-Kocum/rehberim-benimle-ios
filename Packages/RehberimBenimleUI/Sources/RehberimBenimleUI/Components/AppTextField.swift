@@ -8,14 +8,14 @@
 import UIKit
 import RehberimBenimleCoreKit
 
-public final class AppTextField: UITextField {
+public final class AppTextField: UITextField, UITextFieldDelegate {
 
     // MARK: - Types
 
-    public enum Style {
+    public enum Style: Equatable {
         case email
-        case password
-        case normal
+        case password, confirmPassword
+        case normal(String)
     }
 
     // MARK: - Properties
@@ -24,14 +24,25 @@ public final class AppTextField: UITextField {
         top: DesignSystem.Spacing.sm,
         left: DesignSystem.Spacing.md,
         bottom: DesignSystem.Spacing.sm,
-        right: DesignSystem.Spacing.md
+        right: DesignSystem.Spacing.xxl
     )
+    
+    private lazy var eyeButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        button.setImage(UIImage(systemName: "eye"), for: .selected)
+        button.tintColor = DesignSystem.Colors.secondaryText
+        button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        button.addTarget(self, action: #selector(togglePasswordVisibility), for: .touchUpInside)
+        return button
+    }()
 
     // MARK: - Init
 
     public init(style: Style) {
         super.init(frame: .zero)
         configureBase()
+        configureDelegate()
         configureStyle(style)
         applyLayout()
     }
@@ -54,6 +65,11 @@ public final class AppTextField: UITextField {
 
         adjustsFontForContentSizeCategory = true
     }
+    
+    private func configureDelegate() {
+        delegate = self
+        returnKeyType = .done
+    }
 
     private func configureStyle(_ style: Style) {
         switch style {
@@ -63,15 +79,26 @@ public final class AppTextField: UITextField {
             autocapitalizationType = .none
             autocorrectionType = .no
 
-        case .password:
-            placeholder = "Password"
+        case .password, .confirmPassword:
+            placeholder = (style == .password) ? "Şifre" : "Şifreyi Onayla"
             isSecureTextEntry = true
             autocapitalizationType = .none
             autocorrectionType = .no
+            setupRightView()
 
-        case .normal:
+        case .normal(let placeholderText):
+            placeholder = placeholderText
             break
         }
+    }
+    
+    private func setupRightView() {
+        let container = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 30))
+        eyeButton.center = CGPoint(x: 22, y: 15)
+        container.addSubview(eyeButton)
+        
+        rightView = container
+        rightViewMode = .always
     }
 
     private func applyLayout() {
@@ -79,9 +106,19 @@ public final class AppTextField: UITextField {
             $0.height.equalTo(56)
         }
     }
+    
+    // MARK: - Actions
+    @objc private func togglePasswordVisibility() {
+        eyeButton.isSelected.toggle()
+        isSecureTextEntry.toggle()
+        
+        if let existingText = text {
+            text = nil
+            text = existingText
+        }
+    }
 
     // MARK: - Padding
-
     public override func textRect(forBounds bounds: CGRect) -> CGRect {
         bounds.inset(by: padding)
     }

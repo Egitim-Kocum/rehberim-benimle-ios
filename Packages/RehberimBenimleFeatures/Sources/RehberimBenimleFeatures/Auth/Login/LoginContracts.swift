@@ -21,6 +21,7 @@ protocol LoginInteractorProtocol: Sendable {
     func login(email: String, password: String) async throws
 }
 
+@MainActor
 protocol LoginRouterProtocol: AnyObject {
     func navigateToHome()
     func navigateToForgotPassword()

@@ -16,4 +16,15 @@ public final actor MockAuthService: AuthServiceProtocol {
         }
         throw LoginError.invalidCredentials
     }
+    
+    public func signup(role: String, fullName: String, email: String, password: String) async throws {
+        // Simulate network delay
+        try await Task.sleep(nanoseconds: 1_000_000_000) // 1 second
+        
+        // Mock validation - gelecekte gerçek API'den gelecek
+        if email == "test@test.com" && password == "123456" {
+            return
+        }
+        throw SignupError.invalidCredentials
+    }
 }

@@ -19,15 +19,6 @@ final class LoginViewController: BaseViewController {
     required init?(coder: NSCoder) { fatalError() }
 
     // MARK: - UI Components
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Student Login"
-        label.font = .preferredFont(forTextStyle: .title2)
-        label.textColor = DesignSystem.Colors.primaryText
-        label.textAlignment = .center
-        label.accessibilityIdentifier = LoginAccessibilityID.titleLabel
-        return label
-    }()
 
     private lazy var emailTextField: UITextField = {
         let tf = AppTextField(style: .email)
@@ -41,31 +32,18 @@ final class LoginViewController: BaseViewController {
         return tf
     }()
 
-    private lazy var forgotPasswordButton: UIButton = {
-        let button = UIButton(type: .system)
-        let title = "Forgot Password?"
-        let attributes: [NSAttributedString.Key: Any] = [
-            .underlineStyle: NSUnderlineStyle.single.rawValue,
-            .foregroundColor: DesignSystem.Colors.secondaryText,
-            .font: DesignSystem.Typography.preferredFont(for: .body)
-        ]
-        let attributedTitle = NSAttributedString(string: title, attributes: attributes)
-        button.setAttributedTitle(attributedTitle, for: .normal)
-        button.contentHorizontalAlignment = .left
-        button.accessibilityIdentifier = LoginAccessibilityID.forgotPasswordButton
-        return button
-    }()
+    private lazy var forgotPasswordButton = AppButton(
+        title: "Şifremi Unuttum",
+        style: .text,
+        isUnderlined: true,
+        accessibilityIdentifier: LoginAccessibilityID.forgotPasswordButton
+    )
 
-
-    private lazy var loginButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Login", for: .normal)
-        button.backgroundColor = DesignSystem.Colors.primaryButton
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 10
-        button.accessibilityIdentifier = LoginAccessibilityID.loginButton
-        return button
-    }()
+    private lazy var loginButton = AppButton(
+        title: "Giriş Yap",
+        style: .primary,
+        accessibilityIdentifier: LoginAccessibilityID.loginButton
+    )
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -78,22 +56,20 @@ final class LoginViewController: BaseViewController {
     // MARK: - Setup
     private func setupUI() {
         view.backgroundColor = DesignSystem.Colors.background
+        
+        title = "Giriş Yap"
+        
+        view.accessibilityIdentifier = LoginAccessibilityID.viewId
 
         view.addSubviews(
-            titleLabel,
             emailTextField,
             passwordTextField,
             forgotPasswordButton,
             loginButton
         )
 
-        titleLabel.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(24)
-            $0.centerX.equalToSuperview()
-        }
-
         emailTextField.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(32)
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(24)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
 

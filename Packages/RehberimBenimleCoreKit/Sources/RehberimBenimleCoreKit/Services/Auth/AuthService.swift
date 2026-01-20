@@ -19,6 +19,17 @@ public enum LoginError: LocalizedError {
     }
 }
 
+public enum SignupError: LocalizedError {
+    case invalidCredentials
+    
+    public var errorDescription: String? {
+        switch self {
+        case .invalidCredentials:
+            return "Geçersiz email veya şifre."
+        }
+    }
+}
+
 public final actor AuthService: AuthServiceProtocol {
     public func login(email: String, password: String) async throws {
         // Simulate network delay
@@ -29,5 +40,16 @@ public final actor AuthService: AuthServiceProtocol {
             return
         }
         throw LoginError.invalidCredentials
+    }
+    
+    public func signup(role: String, fullName: String, email: String, password: String) async throws {
+        // Simulate network delay
+        try await Task.sleep(nanoseconds: 1_000_000_000) // 1 second
+        
+        // Mock validation - gelecekte gerçek API'den gelecek
+        if email == "test@test.com" && password == "123456" {
+            return
+        }
+        throw SignupError.invalidCredentials
     }
 }
