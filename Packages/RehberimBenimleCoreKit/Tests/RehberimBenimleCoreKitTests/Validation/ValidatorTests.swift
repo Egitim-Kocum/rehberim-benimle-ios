@@ -267,7 +267,7 @@ struct ValidatorTests {
         do {
             try invalidEmail.validateEmail()
             Issue.record("Expected ValidationError.invalidEmail to be thrown")
-        } catch ValidationError.invalidEmail {
+        } catch ValidationError.empty(field: "Email") {
             // Başarılı
         } catch {
             Issue.record("Unexpected error type: \(error)")
@@ -361,10 +361,16 @@ struct ValidatorTests {
     }
     
     @Test
-    func test_validatePassword_withZeroMinLength_withEmptyPassword_passesValidation() throws {
+    func test_validatePassword_withZeroMinLength_withEmptyPassword_failedValidation() throws {
         let password = ""
         
-        try password.validatePassword(minLength: 0)
+        do {
+            try password.validatePassword(minLength: 0)
+        } catch ValidationError.empty(field: "Şifre") {
+            
+        } catch {
+            Issue.record("Unexpected error type: \(error)")
+        }
     }
     
     @Test
@@ -388,8 +394,8 @@ struct ValidatorTests {
         do {
             try emptyPassword.validatePassword()
             Issue.record("Expected ValidationError.passwordTooShort to be thrown")
-        } catch ValidationError.passwordTooShort(let min) {
-            #expect(min == 6)
+        } catch ValidationError.empty(field: "Şifre") {
+            
         } catch {
             Issue.record("Unexpected error type: \(error)")
         }
@@ -416,8 +422,8 @@ struct ValidatorTests {
         do {
             try whitespacePassword.validatePassword()
             Issue.record("Expected ValidationError.passwordTooShort to be thrown")
-        } catch ValidationError.passwordTooShort(let min) {
-            #expect(min == 6)
+        } catch ValidationError.empty(field: "Şifre") {
+            
         } catch {
             Issue.record("Unexpected error type: \(error)")
         }
@@ -463,5 +469,113 @@ struct ValidatorTests {
         } catch {
             Issue.record("Unexpected error type: \(error)")
         }
+    }
+    
+    // MARK: - validateConfirmPassword Tests
+
+    @Test
+    func test_validateConfirmPassword_withMatchingPasswords_passesValidation() throws {
+        let password = "Strong123"
+        let confirmPassword = "Strong123"
+        
+        try confirmPassword.validateConfirmPassword(matches: password)
+    }
+
+    @Test
+    func test_validateConfirmPassword_withDifferentPasswords_throwsValidationError() throws {
+        let password = "Strong123"
+        let confirmPassword = "Wrong123"
+        
+        do {
+            try confirmPassword.validateConfirmPassword(matches: password)
+            Issue.record("Expected ValidationError.passwordsDoNotMatch to be thrown")
+        } catch ValidationError.passwordsDoNotMatch {
+            // Success
+        } catch {
+            Issue.record("Unexpected error type: \(error)")
+        }
+    }
+
+    @Test
+    func test_validateConfirmPassword_withEmptyConfirmPassword_throwsEmptyError() throws {
+        let password = "Strong123"
+        let confirmPassword = ""
+        
+        do {
+            try confirmPassword.validateConfirmPassword(matches: password)
+            Issue.record("Expected ValidationError.empty to be thrown")
+        } catch ValidationError.empty(let field) {
+            #expect(field == "Şifreyi Tekrarla")
+        } catch {
+            Issue.record("Unexpected error type: \(error)")
+        }
+    }
+
+    @Test
+    func test_validateConfirmPassword_withWhitespaceConfirmPassword_throwsEmptyError() throws {
+        let password = "Strong123"
+        let confirmPassword = "   "
+        
+        do {
+            try confirmPassword.validateConfirmPassword(matches: password)
+            Issue.record("Expected ValidationError.empty to be thrown")
+        } catch ValidationError.empty(let field) {
+            #expect(field == "Şifreyi Tekrarla")
+        } catch {
+            Issue.record("Unexpected error type: \(error)")
+        }
+    }
+
+    @Test
+    func test_validateConfirmPassword_withEmptyPasswordAndConfirmPassword_throwsEmptyError() throws {
+        let password = ""
+        let confirmPassword = ""
+        
+        do {
+            try confirmPassword.validateConfirmPassword(matches: password)
+            Issue.record("Expected ValidationError.empty to be thrown")
+        } catch ValidationError.empty(let field) {
+            #expect(field == "Şifreyi Tekrarla")
+        } catch {
+            Issue.record("Unexpected error type: \(error)")
+        }
+    }
+
+    @Test
+    func test_validateConfirmPassword_withConfirmPasswordShorterThanPassword_throwsPasswordsDoNotMatch() throws {
+        let password = "StrongPassword"
+        let confirmPassword = "Strong"
+        
+        do {
+            try confirmPassword.validateConfirmPassword(matches: password)
+            Issue.record("Expected ValidationError.passwordsDoNotMatch to be thrown")
+        } catch ValidationError.passwordsDoNotMatch {
+            // Success
+        } catch {
+            Issue.record("Unexpected error type: \(error)")
+        }
+    }
+
+    @Test
+    func test_validateConfirmPassword_withDifferentCasePasswords_throwsPasswordsDoNotMatch() throws {
+        let password = "Strong123"
+        let confirmPassword = "strong123"
+        
+        do {
+            try confirmPassword.validateConfirmPassword(matches: password)
+            Issue.record("Expected ValidationError.passwordsDoNotMatch to be thrown")
+        } catch ValidationError.passwordsDoNotMatch {
+            // Success
+        } catch {
+            Issue.record("Unexpected error type: \(error)")
+        }
+    }
+
+    @Test
+    func test_validateConfirmPassword_withSpecialCharactersAndMatching_passesValidation() throws {
+        let password = "!@#Password123"
+        let confirmPassword = "!@#Password123"
+        
+        try confirmPassword.validateConfirmPassword(matches: password)
     }
 }

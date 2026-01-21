@@ -67,34 +67,3 @@ final class MockLoginRouter: LoginRouterProtocol {
         didNavigateToForgotPassword = true
     }
 }
-
-// MARK: - Mock Navigation Controller
-final class MockNavigationController: UINavigationController {
-    var pushedViewController: UIViewController?
-    
-    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        pushedViewController = viewController
-        super.pushViewController(viewController, animated: animated)
-    }
-}
-
-// MARK: - Mock Auth Service
-final actor MockAuthService: AuthServiceProtocol {
-    var isLoginCalled = false
-    var shouldReturnError = false
-    
-    func setShouldReturnError(_ value: Bool) {
-        shouldReturnError = value
-    }
-    
-    func getIsLoginCalled() -> Bool {
-        return isLoginCalled
-    }
-    
-    func login(email: String, password: String) async throws {
-        isLoginCalled = true
-        if shouldReturnError {
-            throw LoginError.invalidCredentials
-        }
-    }
-}

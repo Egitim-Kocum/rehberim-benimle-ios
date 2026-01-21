@@ -38,10 +38,10 @@ public extension String {
     }
     
     func validateConfirmPassword(matches password: String) throws {
-            try validateNotEmpty(fieldName: "Şifreyi Tekrarla")
-
-            if self != password {
-                throw ValidationError.passwordsDoNotMatch
-            }
+        try validateNotEmpty(fieldName: "Şifreyi Tekrarla")
+        
+        if self != password {
+            throw ValidationError.passwordsDoNotMatch
         }
+    }
 }

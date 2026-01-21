@@ -34,7 +34,7 @@ struct LoginPresenterTests {
         // Given
         validator.shouldValidationFail = true
         
-        // When - await bittiğinde catch bloğu çalışmış olacak
+        // When
         await presenter.loginButtonTapped(email: nil, password: nil)
         
         // Then
