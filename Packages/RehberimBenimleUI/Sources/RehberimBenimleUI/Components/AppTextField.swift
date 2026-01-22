@@ -84,6 +84,13 @@ public final class AppTextField: UITextField, UITextFieldDelegate {
             isSecureTextEntry = true
             autocapitalizationType = .none
             autocorrectionType = .no
+            
+            if ProcessInfo.processInfo.arguments.contains("--ui-testing") {
+                textContentType = .oneTimeCode
+            } else {
+                textContentType = .password
+            }
+            
             setupRightView()
 
         case .normal(let placeholderText):

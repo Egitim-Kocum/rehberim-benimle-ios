@@ -34,5 +34,17 @@ class BaseScreen {
     func typeText(_ text: String, into element: XCUIElement) {
         tap(element)
         element.typeText(text)
+        element.typeText("\n")
+    }
+    
+    func selectItem(_ value: String, from dropdown: XCUIElement) {
+        tap(dropdown)
+        
+        let pickerWheel = app.pickerWheels.element
+        
+        pickerWheel.adjust(toPickerWheelValue: value)
+        
+        let doneButton = app.toolbars.buttons["Tamam"]
+        doneButton.tap()
     }
 }
