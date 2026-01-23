@@ -6,6 +6,7 @@
 //
 
 import RehberimBenimleUI
+import RehberimBenimleCoreKit
 
 @MainActor
 protocol LoginViewControllerProtocol: BaseViewProtocol { }
@@ -18,11 +19,12 @@ protocol LoginPresenterProtocol: BasePresenterProtocol {
 }
 
 protocol LoginInteractorProtocol: Sendable {
-    func login(email: String, password: String) async throws
+    func login(email: String, password: String) async throws -> AuthResponse
 }
 
 @MainActor
 protocol LoginRouterProtocol: AnyObject {
+    func navigateToInfos(role: UserType)
     func navigateToHome()
     func navigateToForgotPassword()
 }

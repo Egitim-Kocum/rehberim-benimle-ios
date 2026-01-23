@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RehberimBenimleUI
 
 @MainActor
 final class LoginPresenter {
@@ -51,9 +52,21 @@ private extension LoginPresenter {
         view?.render(state: .loading)
 
         do {
-            try await interactor.login(email: email, password: password)
+            let response = try await interactor.login(email: email, password: password)
             view?.render(state: .success)
-            router.navigateToHome()
+                        
+            let uiRole: UserType
+            switch response.role {
+            case "student": uiRole = .student
+            case "instructor": uiRole = .instructor
+            default: uiRole = .notSelected
+            }
+            
+            if response.isProfileCompleted {
+                router.navigateToHome()
+            } else {
+                router.navigateToInfos(role: uiRole)
+            }
         } catch {
             view?.render(state: .error(error.localizedDescription))
         }

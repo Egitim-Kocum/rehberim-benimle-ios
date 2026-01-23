@@ -24,6 +24,5 @@ protocol SignupInteractorProtocol: Sendable {
 
 @MainActor
 protocol SignupRouterProtocol: AnyObject {
-    func navigateToInfos()
     func navigateToLogin()
 }

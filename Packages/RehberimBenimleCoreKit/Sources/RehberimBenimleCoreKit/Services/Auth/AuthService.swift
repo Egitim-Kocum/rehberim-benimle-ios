@@ -31,13 +31,15 @@ public enum SignupError: LocalizedError {
 }
 
 public final actor AuthService: AuthServiceProtocol {
-    public func login(email: String, password: String) async throws {
+    public func login(email: String, password: String) async throws -> AuthResponse {
         // Simulate network delay
         try await Task.sleep(nanoseconds: 1_000_000_000) // 1 second
         
         // Mock validation - gelecekte gerçek API'den gelecek
-        if email == "test@test.com" && password == "123456" {
-            return
+        if email.contains("student") {
+            return AuthResponse(role: "student", isProfileCompleted: false)
+        } else if email.contains("instructor") {
+            return AuthResponse(role: "instructor", isProfileCompleted: false)
         }
         throw LoginError.invalidCredentials
     }

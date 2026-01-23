@@ -9,12 +9,8 @@ import UIKit
 
 final class SignupRouter: SignupRouterProtocol {
     weak var viewController: UIViewController?
-
-    func navigateToInfos() {
-        
-    }
     
     func navigateToLogin() {
-        viewController?.navigationController?.pushViewController(LoginBuilder.build(), animated: true)
+        viewController?.navigationController?.setViewControllers([LoginBuilder.build()], animated: false)
     }
 }

@@ -53,7 +53,7 @@ private extension SignupPresenter {
         do {
             try await interactor.signup(role: role, fullName: fullName, email: email, password: password)
             view?.render(state: .success)
-            router.navigateToInfos()
+            router.navigateToLogin()
         } catch {
             view?.render(state: .error(error.localizedDescription))
         }

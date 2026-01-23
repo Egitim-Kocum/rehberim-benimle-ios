@@ -6,10 +6,22 @@
 //
 
 import UIKit
+import RehberimBenimleUI
 
 final class LoginRouter: LoginRouterProtocol {
 
     weak var viewController: UIViewController?
+    
+    func navigateToInfos(role: UserType) {
+        switch role {
+        case .student:
+            print("Student Infos")
+        case .instructor:
+            print("Instructor Infos")
+        default:
+            break
+        }
+    }
     
     func navigateToHome() {
         // TODO: push home

@@ -6,6 +6,6 @@
 //
 
 public protocol AuthServiceProtocol: Sendable {
-    func login(email: String, password: String) async throws
+    func login(email: String, password: String) async throws -> AuthResponse
     func signup(role: String, fullName: String, email: String, password: String) async throws
 }

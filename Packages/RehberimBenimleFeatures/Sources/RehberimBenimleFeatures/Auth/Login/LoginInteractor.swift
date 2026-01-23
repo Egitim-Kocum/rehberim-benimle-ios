@@ -16,7 +16,7 @@ final actor LoginInteractor: LoginInteractorProtocol {
         self.authService = authService
     }
 
-    func login(email: String, password: String) async throws {
-        try await authService.login(email: email, password: password)
+    func login(email: String, password: String) async throws -> AuthResponse {
+        return try await authService.login(email: email, password: password)
     }
 }
