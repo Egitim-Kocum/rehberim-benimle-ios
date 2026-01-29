@@ -10,10 +10,17 @@
 		0A46D0042E8C2BD700A073EE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0A46D0032E8C2BD700A073EE /* SnapKit */; };
 		0A46D0092E8C2C0600A073EE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0A46D0082E8C2C0600A073EE /* Alamofire */; };
 		0A46D00E2E8C2C1400A073EE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0A46D00D2E8C2C1400A073EE /* Kingfisher */; };
+		244846E22F07E39B000E195F /* RehberimBenimleCoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 244846E12F07E39B000E195F /* RehberimBenimleCoreKit */; };
+		244846E52F07E3BB000E195F /* RehberimBenimleFeatures in Frameworks */ = {isa = PBXBuildFile; productRef = 244846E42F07E3BB000E195F /* RehberimBenimleFeatures */; };
+		244846E82F07E3D4000E195F /* RehberimBenimleUI in Frameworks */ = {isa = PBXBuildFile; productRef = 244846E72F07E3D4000E195F /* RehberimBenimleUI */; };
+		24A64DF42F050FB20075FE56 /* RehberimBenimleCoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 24A64DF32F050FB20075FE56 /* RehberimBenimleCoreKit */; };
+		24A64DFA2F0521DD0075FE56 /* RehberimBenimleUI in Frameworks */ = {isa = PBXBuildFile; productRef = 24A64DF92F0521DD0075FE56 /* RehberimBenimleUI */; };
+		24DA3FFF2F1E57AF00B9AD6B /* RehberimBenimleFeatures in Frameworks */ = {isa = PBXBuildFile; productRef = 24DA3FFE2F1E57AF00B9AD6B /* RehberimBenimleFeatures */; };
+		24DB3A802F0694B700524984 /* RehberimBenimleFeatures in Frameworks */ = {isa = PBXBuildFile; productRef = 24DB3A7F2F0694B700524984 /* RehberimBenimleFeatures */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2453ED7B2E9BEAA4001C4479 /* PBXContainerItemProxy */ = {
+		2410872B2EFD522A00E99E5D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0A46CFBB2E8C254100A073EE /* Project object */;
 			proxyType = 1;
@@ -24,14 +31,14 @@
 
 /* Begin PBXFileReference section */
 		0A46CFC32E8C254100A073EE /* RehberimBenimle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RehberimBenimle.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2453ED772E9BEAA4001C4479 /* RehberimBenimleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RehberimBenimleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		241087252EFD522A00E99E5D /* RehberimBenimleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RehberimBenimleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
 		0A46CFD52E8C254300A073EE /* Exceptions for "RehberimBenimle" folder in "RehberimBenimle" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				App/Info.plist,
 			);
 			target = 0A46CFC22E8C254100A073EE /* RehberimBenimle */;
 		};
@@ -46,9 +53,9 @@
 			path = RehberimBenimle;
 			sourceTree = "<group>";
 		};
-		2453ED782E9BEAA4001C4479 /* RehberimBenimleTests */ = {
+		241087262EFD522A00E99E5D /* RehberimBenimleUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = RehberimBenimleTests;
+			path = RehberimBenimleUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -58,16 +65,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				244846E52F07E3BB000E195F /* RehberimBenimleFeatures in Frameworks */,
+				244846E22F07E39B000E195F /* RehberimBenimleCoreKit in Frameworks */,
+				24DB3A802F0694B700524984 /* RehberimBenimleFeatures in Frameworks */,
+				244846E82F07E3D4000E195F /* RehberimBenimleUI in Frameworks */,
+				24A64DFA2F0521DD0075FE56 /* RehberimBenimleUI in Frameworks */,
 				0A46D0092E8C2C0600A073EE /* Alamofire in Frameworks */,
+				24A64DF42F050FB20075FE56 /* RehberimBenimleCoreKit in Frameworks */,
 				0A46D0042E8C2BD700A073EE /* SnapKit in Frameworks */,
 				0A46D00E2E8C2C1400A073EE /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2453ED742E9BEAA3001C4479 /* Frameworks */ = {
+		241087222EFD522A00E99E5D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24DA3FFF2F1E57AF00B9AD6B /* RehberimBenimleFeatures in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				0A46CFC52E8C254100A073EE /* RehberimBenimle */,
-				2453ED782E9BEAA4001C4479 /* RehberimBenimleTests */,
+				241087262EFD522A00E99E5D /* RehberimBenimleUITests */,
+				24EE07812F07DBAB00D6315E /* Frameworks */,
 				0A46CFC42E8C254100A073EE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,9 +102,16 @@
 			isa = PBXGroup;
 			children = (
 				0A46CFC32E8C254100A073EE /* RehberimBenimle.app */,
-				2453ED772E9BEAA4001C4479 /* RehberimBenimleTests.xctest */,
+				241087252EFD522A00E99E5D /* RehberimBenimleUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		24EE07812F07DBAB00D6315E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,33 +137,40 @@
 				0A46D0032E8C2BD700A073EE /* SnapKit */,
 				0A46D0082E8C2C0600A073EE /* Alamofire */,
 				0A46D00D2E8C2C1400A073EE /* Kingfisher */,
+				24A64DF32F050FB20075FE56 /* RehberimBenimleCoreKit */,
+				24A64DF92F0521DD0075FE56 /* RehberimBenimleUI */,
+				24DB3A7F2F0694B700524984 /* RehberimBenimleFeatures */,
+				244846E12F07E39B000E195F /* RehberimBenimleCoreKit */,
+				244846E42F07E3BB000E195F /* RehberimBenimleFeatures */,
+				244846E72F07E3D4000E195F /* RehberimBenimleUI */,
 			);
 			productName = RehberimBenimle;
 			productReference = 0A46CFC32E8C254100A073EE /* RehberimBenimle.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2453ED762E9BEAA3001C4479 /* RehberimBenimleTests */ = {
+		241087242EFD522A00E99E5D /* RehberimBenimleUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2453ED7D2E9BEAA4001C4479 /* Build configuration list for PBXNativeTarget "RehberimBenimleTests" */;
+			buildConfigurationList = 2410872D2EFD522A00E99E5D /* Build configuration list for PBXNativeTarget "RehberimBenimleUITests" */;
 			buildPhases = (
-				2453ED732E9BEAA3001C4479 /* Sources */,
-				2453ED742E9BEAA3001C4479 /* Frameworks */,
-				2453ED752E9BEAA3001C4479 /* Resources */,
+				241087212EFD522A00E99E5D /* Sources */,
+				241087222EFD522A00E99E5D /* Frameworks */,
+				241087232EFD522A00E99E5D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2453ED7C2E9BEAA4001C4479 /* PBXTargetDependency */,
+				2410872C2EFD522A00E99E5D /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				2453ED782E9BEAA4001C4479 /* RehberimBenimleTests */,
+				241087262EFD522A00E99E5D /* RehberimBenimleUITests */,
 			);
-			name = RehberimBenimleTests;
+			name = RehberimBenimleUITests;
 			packageProductDependencies = (
+				24DA3FFE2F1E57AF00B9AD6B /* RehberimBenimleFeatures */,
 			);
-			productName = RehberimBenimleTests;
-			productReference = 2453ED772E9BEAA4001C4479 /* RehberimBenimleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			productName = RehberimBenimleUITests;
+			productReference = 241087252EFD522A00E99E5D /* RehberimBenimleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -150,14 +179,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2600;
-				LastUpgradeCheck = 1640;
+				LastSwiftUpdateCheck = 2620;
+				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					0A46CFC22E8C254100A073EE = {
 						CreatedOnToolsVersion = 16.4;
 					};
-					2453ED762E9BEAA3001C4479 = {
-						CreatedOnToolsVersion = 26.0;
+					241087242EFD522A00E99E5D = {
+						CreatedOnToolsVersion = 26.2;
+						LastSwiftMigration = 2620;
 						TestTargetID = 0A46CFC22E8C254100A073EE;
 					};
 				};
@@ -175,6 +205,9 @@
 				0A46D0022E8C2BD700A073EE /* XCRemoteSwiftPackageReference "SnapKit" */,
 				0A46D0072E8C2C0600A073EE /* XCRemoteSwiftPackageReference "Alamofire" */,
 				0A46D00C2E8C2C1400A073EE /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				244846E02F07E39B000E195F /* XCLocalSwiftPackageReference "Packages/RehberimBenimleCoreKit" */,
+				244846E32F07E3BB000E195F /* XCLocalSwiftPackageReference "Packages/RehberimBenimleFeatures" */,
+				244846E62F07E3D4000E195F /* XCLocalSwiftPackageReference "Packages/RehberimBenimleUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0A46CFC42E8C254100A073EE /* Products */;
@@ -182,7 +215,7 @@
 			projectRoot = "";
 			targets = (
 				0A46CFC22E8C254100A073EE /* RehberimBenimle */,
-				2453ED762E9BEAA3001C4479 /* RehberimBenimleTests */,
+				241087242EFD522A00E99E5D /* RehberimBenimleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -195,7 +228,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2453ED752E9BEAA3001C4479 /* Resources */ = {
+		241087232EFD522A00E99E5D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -212,7 +245,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2453ED732E9BEAA3001C4479 /* Sources */ = {
+		241087212EFD522A00E99E5D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -222,10 +255,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2453ED7C2E9BEAA4001C4479 /* PBXTargetDependency */ = {
+		2410872C2EFD522A00E99E5D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0A46CFC22E8C254100A073EE /* RehberimBenimle */;
-			targetProxy = 2453ED7B2E9BEAA4001C4479 /* PBXContainerItemProxy */;
+			targetProxy = 2410872B2EFD522A00E99E5D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -239,7 +272,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F8U69W5MA6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RehberimBenimle/Info.plist;
+				INFOPLIST_FILE = RehberimBenimle/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -267,7 +300,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F8U69W5MA6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RehberimBenimle/Info.plist;
+				INFOPLIST_FILE = RehberimBenimle/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -345,6 +378,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -402,42 +436,46 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		2453ED7E2E9BEAA4001C4479 /* Debug */ = {
+		2410872E2EFD522A00E99E5D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SURBTN8MP7;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.RehberimBenimle.RehberimBenimleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.okarius.RehberimBenimleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RehberimBenimle.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RehberimBenimle";
+				TEST_TARGET_NAME = RehberimBenimle;
 			};
 			name = Debug;
 		};
-		2453ED7F2E9BEAA4001C4479 /* Release */ = {
+		2410872F2EFD522A00E99E5D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SURBTN8MP7;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.RehberimBenimle.RehberimBenimleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.okarius.RehberimBenimleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -445,7 +483,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RehberimBenimle.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RehberimBenimle";
+				TEST_TARGET_NAME = RehberimBenimle;
 			};
 			name = Release;
 		};
@@ -470,16 +508,31 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2453ED7D2E9BEAA4001C4479 /* Build configuration list for PBXNativeTarget "RehberimBenimleTests" */ = {
+		2410872D2EFD522A00E99E5D /* Build configuration list for PBXNativeTarget "RehberimBenimleUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2453ED7E2E9BEAA4001C4479 /* Debug */,
-				2453ED7F2E9BEAA4001C4479 /* Release */,
+				2410872E2EFD522A00E99E5D /* Debug */,
+				2410872F2EFD522A00E99E5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		244846E02F07E39B000E195F /* XCLocalSwiftPackageReference "Packages/RehberimBenimleCoreKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/RehberimBenimleCoreKit;
+		};
+		244846E32F07E3BB000E195F /* XCLocalSwiftPackageReference "Packages/RehberimBenimleFeatures" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/RehberimBenimleFeatures;
+		};
+		244846E62F07E3D4000E195F /* XCLocalSwiftPackageReference "Packages/RehberimBenimleUI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/RehberimBenimleUI;
+		};
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
 		0A46D0022E8C2BD700A073EE /* XCRemoteSwiftPackageReference "SnapKit" */ = {
@@ -523,6 +576,35 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0A46D00C2E8C2C1400A073EE /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		244846E12F07E39B000E195F /* RehberimBenimleCoreKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RehberimBenimleCoreKit;
+		};
+		244846E42F07E3BB000E195F /* RehberimBenimleFeatures */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RehberimBenimleFeatures;
+		};
+		244846E72F07E3D4000E195F /* RehberimBenimleUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RehberimBenimleUI;
+		};
+		24A64DF32F050FB20075FE56 /* RehberimBenimleCoreKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RehberimBenimleCoreKit;
+		};
+		24A64DF92F0521DD0075FE56 /* RehberimBenimleUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RehberimBenimleUI;
+		};
+		24DA3FFE2F1E57AF00B9AD6B /* RehberimBenimleFeatures */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 244846E32F07E3BB000E195F /* XCLocalSwiftPackageReference "Packages/RehberimBenimleFeatures" */;
+			productName = RehberimBenimleFeatures;
+		};
+		24DB3A7F2F0694B700524984 /* RehberimBenimleFeatures */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RehberimBenimleFeatures;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
