@@ -32,6 +32,49 @@ struct SignupPresenterTests {
         self.presenter.view = view
     }
     
+    @Test("SignupPresenter validateEmail success renders success state")
+    func test_SignupPresenter_validateEmail_whenValidEmail_rendersSuccess() {
+        // When
+        presenter.validateEmail("test@mail.com")
+
+        // Then
+        if case .success = view.emailState {
+            #expect(true)
+        } else {
+            Issue.record("Expected email validation to succeed")
+        }
+    }
+    
+    @Test("SignupPresenter validateEmail error renders error state")
+    func test_SignupPresenter_validateEmail_whenInvalidEmail_rendersError() {
+        // When
+        presenter.validateEmail("invalid-mail")
+
+        // Then
+        if case .error = view.emailState {
+            #expect(true)
+        } else {
+            Issue.record("Expected email validation error")
+        }
+    }
+    
+    @Test("SignupPresenter validateConfirmPassword mismatch renders error")
+    func test_SignupPresenter_validateConfirmPassword_whenPasswordsDoNotMatch_rendersError() {
+        // When
+        presenter.validateConfirmPassword(
+            password: "123456",
+            confirmPassword: "123"
+        )
+
+        // Then
+        if case .error = view.confirmPasswordState {
+            #expect(true)
+        } else {
+            Issue.record("Expected confirm password validation error")
+        }
+    }
+
+    
     @Test("Should not call interactor and should render error when validation fails")
     func test_SignupPresenter_signupButtonTapped_whenValidationFails_rendersError() async {
         // Given
@@ -57,7 +100,7 @@ struct SignupPresenterTests {
         
         // When
         await presenter.signupButtonTapped(
-            role: .notSelected,
+            role: .student,
             fullName: "Okan",
             email: "valid@mail.com",
             password: "123",
@@ -67,7 +110,7 @@ struct SignupPresenterTests {
         // Then
         let result = await interactor.getIsSignupCalled()
         #expect(result == true)
-        #expect(router.didNavigateToInfos == false)
+        #expect(router.didNavigateToLogin == false)
 
         if case .error = view.lastRenderedState {
             #expect(true)
@@ -83,7 +126,7 @@ struct SignupPresenterTests {
         
         // When
         await presenter.signupButtonTapped(
-            role: .notSelected,
+            role: .student,
             fullName: "Okan",
             email: "valid@mail.com",
             password: "123",
@@ -93,7 +136,7 @@ struct SignupPresenterTests {
         // Then
         let result = await interactor.getIsSignupCalled()
         #expect(result == true)
-        #expect(router.didNavigateToInfos == true)
+        #expect(router.didNavigateToLogin == true)
         
         if case .success = view.lastRenderedState {
             #expect(true)

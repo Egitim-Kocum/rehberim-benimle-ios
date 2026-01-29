@@ -12,10 +12,33 @@ import RehberimBenimleUI
 // MARK: - Mock View
 @MainActor
 final class MockSignupView: SignupViewControllerProtocol {
+    
+    
     var lastRenderedState: LoadingState?
+    
+    var fullNameState: LoadingState?
+    var emailState: LoadingState?
+    var passwordState: LoadingState?
+    var confirmPasswordState: LoadingState?
     
     func render(state: LoadingState) {
         lastRenderedState = state
+    }
+    
+    func renderFullName(state: LoadingState) {
+        fullNameState = state
+    }
+    
+    func renderEmail(state: LoadingState) {
+        emailState = state
+    }
+    
+    func renderPassword(state: LoadingState) {
+        passwordState = state
+    }
+    
+    func renderConfirmPassword(state: LoadingState) {
+        confirmPasswordState = state
     }
 }
 
@@ -27,7 +50,7 @@ final class MockSignupValidator: SignupValidatorProtocol {
         if shouldValidationFail {
             throw ValidationError.invalidEmail
         }
-        return (role?.itemTitle ?? UserType.notSelected.itemTitle, fullName ?? "", email ?? "", password ?? "")
+        return (role?.title ?? UserType.student.title, fullName ?? "", email ?? "", password ?? "")
     }
 }
 
@@ -54,12 +77,7 @@ final actor MockSignupInteractor: SignupInteractorProtocol {
 
 // MARK: - Mock Router
 final class MockSignupRouter: SignupRouterProtocol {
-    var didNavigateToInfos = false
     var didNavigateToLogin = false
-    
-    func navigateToInfos() {
-        didNavigateToInfos = true
-    }
     
     func navigateToLogin() {
         didNavigateToLogin = true

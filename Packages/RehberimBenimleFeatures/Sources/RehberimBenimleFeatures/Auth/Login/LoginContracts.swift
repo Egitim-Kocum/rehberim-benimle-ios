@@ -16,6 +16,7 @@ protocol LoginPresenterProtocol: BasePresenterProtocol {
     var view: LoginViewControllerProtocol? { get set }
     func loginButtonTapped(email: String?, password: String?) async
     func forgotPasswordTapped()
+    func signupTapped()
 }
 
 protocol LoginInteractorProtocol: Sendable {
@@ -27,4 +28,5 @@ protocol LoginRouterProtocol: AnyObject {
     func navigateToInfos(role: UserType)
     func navigateToHome()
     func navigateToForgotPassword()
+    func navigateToSignup()
 }

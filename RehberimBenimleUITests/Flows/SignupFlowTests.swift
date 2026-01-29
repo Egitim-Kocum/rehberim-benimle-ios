@@ -11,24 +11,21 @@ import RehberimBenimleUI
 
 final class StudentSignupFlowTests: BaseUITestCase {
     
-    func test_StudentSignupView_signup_withValidCredentials_navigatesToHome() {
+    func test_StudentSignupView_signup_withValidCredentials_navigatesToLogin() {
         // Given
         let signupScreen = SignupScreen(app: app)
         
         // When
         signupScreen.signUp(
-            role: UserType.student.itemTitle,
+            role: UserType.student.title,
             fullName: "Okan",
-            email: "okan@mail.co",
+            email: "test@test.com",
             password: "123456",
             confirmPassword: "123456"
         )
         
-        // Then
-        // TODO: Implement HomeView and assign accessibilityIdentifier
-        // Once implemented, replace this assertion with:
-        // let homeView = app.otherElements["HomeView"]
-        // XCTAssertTrue(homeView.waitForExistence(timeout: 2))
+        let loginView = app.otherElements[LoginAccessibilityID.viewId]
+        XCTAssertTrue(loginView.waitForExistence(timeout: 2))
     }
     
     func test_StudentSignupView_signup_withInvalidCredentials_showsError() {
@@ -37,7 +34,7 @@ final class StudentSignupFlowTests: BaseUITestCase {
         
         // When
         signupScreen.signUp(
-            role: UserType.student.itemTitle,
+            role: UserType.student.title,
             fullName: "Okan",
             email: "invalid-mail",
             password: "123456",
@@ -58,7 +55,7 @@ final class StudentSignupFlowTests: BaseUITestCase {
         
         // When
         signupScreen.signUp(
-            role: UserType.notSelected.itemTitle,
+            role: UserType.instructor.title,
             fullName: "",
             email: "",
             password: "",
@@ -79,7 +76,7 @@ final class StudentSignupFlowTests: BaseUITestCase {
         
         // When
         signupScreen.signUp(
-            role: UserType.notSelected.itemTitle,
+            role: UserType.student.title,
             fullName: "   ",
             email: "   ",
             password: "   ",

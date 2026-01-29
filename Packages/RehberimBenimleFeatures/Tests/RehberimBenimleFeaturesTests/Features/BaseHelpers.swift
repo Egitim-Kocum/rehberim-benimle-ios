@@ -11,13 +11,23 @@ import RehberimBenimleCoreKit
 
 // MARK: - Mock Navigation Controller
 final class MockNavigationController: UINavigationController {
+
     var pushedViewController: UIViewController?
-    
+    var setViewControllersCalled = false
+    var lastSetViewControllers: [UIViewController]?
+
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         pushedViewController = viewController
         super.pushViewController(viewController, animated: animated)
     }
+
+    override func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
+        setViewControllersCalled = true
+        lastSetViewControllers = viewControllers
+        super.setViewControllers(viewControllers, animated: animated)
+    }
 }
+
 
 // MARK: - Mock Auth Service
 final actor MockAuthService: AuthServiceProtocol {
@@ -37,11 +47,12 @@ final actor MockAuthService: AuthServiceProtocol {
         return isSignupCalled
     }
     
-    func login(email: String, password: String) async throws {
+    func login(email: String, password: String) async throws -> AuthResponse {
         isLoginCalled = true
         if shouldReturnError {
             throw LoginError.invalidCredentials
         }
+        return AuthResponse(role: "", isProfileCompleted: false)
     }
     
     func signup(role: String, fullName: String, email: String, password: String) async throws {

@@ -52,13 +52,14 @@ struct LoginPresenterTests {
         // Given
         await interactor.setShouldReturnError(true)
         
-        // When - await bittiğinde interactor hatası yakalanmış olacak
+        // When
         await presenter.loginButtonTapped(email: "valid@mail.com", password: "123")
         
         // Then
         let result = await interactor.getIsLoginCalled()
         #expect(result == true)
         #expect(router.didNavigateToHome == false)
+        #expect(router.didNavigateToInfos == false)
 
         if case .error = view.lastRenderedState {
             #expect(true)
@@ -68,16 +69,40 @@ struct LoginPresenterTests {
     }
     
     @Test("Should render success and navigate to home when interactor is successful")
-    func test_LoginPresenter_loginButtonTapped_whenSuccess_rendersSuccessAndNavigates() async {
+    func test_LoginPresenter_loginButtonTapped_whenSuccess_rendersSuccess_navigatesInfos() async {
         // Given
         await interactor.setShouldReturnError(false)
+        await interactor.setIsProfileCompleted(false)
         
-        // When - await bittiğinde tüm akış (loading -> success -> navigate) tamamlanmış olacak
+        // When
         await presenter.loginButtonTapped(email: "test@mail.com", password: "123")
         
         // Then
         let result = await interactor.getIsLoginCalled()
         #expect(result == true)
+        #expect(router.didNavigateToInfos == true)
+        #expect(router.didNavigateToHome == false)
+        
+        if case .success = view.lastRenderedState {
+            #expect(true)
+        } else {
+            Issue.record("Expected view to render a success state")
+        }
+    }
+    
+    @Test("Should render success and navigate to home when interactor is successful")
+    func test_LoginPresenter_loginButtonTapped_whenSuccess_rendersSuccess_navigatesHome() async {
+        // Given
+        await interactor.setShouldReturnError(false)
+        await interactor.setIsProfileCompleted(true)
+        
+        // When
+        await presenter.loginButtonTapped(email: "test@mail.com", password: "123")
+        
+        // Then
+        let result = await interactor.getIsLoginCalled()
+        #expect(result == true)
+        #expect(router.didNavigateToInfos == false)
         #expect(router.didNavigateToHome == true)
         
         if case .success = view.lastRenderedState {

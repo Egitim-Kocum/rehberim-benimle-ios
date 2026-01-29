@@ -44,6 +44,10 @@ extension LoginPresenter: LoginPresenterProtocol {
     func forgotPasswordTapped() {
         router.navigateToForgotPassword()
     }
+    
+    func signupTapped() {
+        router.navigateToSignup()
+    }
 }
 
 // MARK: - Private Helpers
@@ -59,7 +63,7 @@ private extension LoginPresenter {
             switch response.role {
             case "student": uiRole = .student
             case "instructor": uiRole = .instructor
-            default: uiRole = .notSelected
+            default: uiRole = .student
             }
             
             if response.isProfileCompleted {

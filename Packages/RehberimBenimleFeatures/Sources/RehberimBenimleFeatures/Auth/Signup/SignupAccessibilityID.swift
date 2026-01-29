@@ -7,7 +7,7 @@
 
 public enum SignupAccessibilityID {
     public static let viewId = "signup_view_id"
-    public static let userDropDown = "signup_user_dropdown"
+    public static let userRoleSegmented = "signup_user_role_segmented"
     public static let fullNameTextField = "signup_full_name_textfield"
     public static let emailTextField = "signup_email_textfield"
     public static let passwordTextField = "signup_password_textfield"

@@ -24,7 +24,7 @@ struct SignupInteractorTests {
     @Test("Signup successfully calls auth service with credentials")
     func test_SignupInteractor_signup_callsAuthService_withCorrectParameters() async throws {
         // When
-        try await interactor.signup(role: UserType.student.itemTitle, fullName: "Okan", email: "okan@mail.com", password: "123456")
+        try await interactor.signup(role: UserType.student.title, fullName: "Okan", email: "okan@mail.com", password: "123456")
         
         // Then
         #expect(await authService.getIsSignupCalled())
@@ -35,7 +35,7 @@ struct SignupInteractorTests {
         await authService.setShouldReturnError(true)
         
         do {
-            try await interactor.signup(role: UserType.student.itemTitle, fullName: "Okan", email: "okan@mail.com", password: "123456")
+            try await interactor.signup(role: UserType.student.title, fullName: "Okan", email: "okan@mail.com", password: "123456")
             Issue.record("Expected error but none thrown")
         } catch SignupError.invalidCredentials {
 

@@ -43,6 +43,67 @@ extension SignupPresenter: SignupPresenterProtocol {
     func alreadyHaveAccountTapped() {
         router.navigateToLogin()
     }
+    
+    func validateFullName(_ text: String?) {
+        guard let text, !text.isEmpty else {
+            view?.renderFullName(state: .idle)
+            return
+        }
+        
+        do {
+            try text.validateNotEmpty(fieldName: "İsim")
+            view?.renderFullName(state: .success)
+        } catch {
+            view?.renderFullName(state: .error(error.localizedDescription))
+        }
+    }
+    
+    func validateEmail(_ text: String?) {
+        guard let text, !text.isEmpty else {
+            view?.renderEmail(state: .idle)
+            return
+        }
+        
+        do {
+            try text.validateEmail()
+            view?.renderEmail(state: .success)
+        } catch {
+            view?.renderEmail(state: .error(error.localizedDescription))
+        }
+    }
+    
+    func validatePassword(_ text: String?) {
+        guard let text, !text.isEmpty else {
+            view?.renderPassword(state: .idle)
+            return
+        }
+        
+        do {
+            try text.validatePassword()
+            view?.renderPassword(state: .success)
+        } catch {
+            view?.renderPassword(state: .error(error.localizedDescription))
+        }
+    }
+    
+    func validateConfirmPassword(password: String?, confirmPassword: String?) {
+        guard let confirmPassword, !confirmPassword.isEmpty else {
+            view?.renderConfirmPassword(state: .idle)
+            return
+        }
+        
+        guard let password, !password.isEmpty else {
+            view?.renderConfirmPassword(state: .error("Önce şifre girin"))
+            return
+        }
+        
+        do {
+            try confirmPassword.validateConfirmPassword(matches: password)
+            view?.renderConfirmPassword(state: .success)
+        } catch {
+            view?.renderConfirmPassword(state: .error(error.localizedDescription))
+        }
+    }
 }
 
 // MARK: - Private Helpers

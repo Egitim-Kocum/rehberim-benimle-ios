@@ -20,13 +20,13 @@ final class LoginViewController: BaseViewController {
 
     // MARK: - UI Components
 
-    private lazy var emailTextField: UITextField = {
+    private lazy var emailTextField: AppTextField = {
         let tf = AppTextField(style: .email)
         tf.accessibilityIdentifier = LoginAccessibilityID.emailTextField
         return tf
     }()
     
-    private lazy var passwordTextField: UITextField = {
+    private lazy var passwordTextField: AppTextField = {
         let tf = AppTextField(style: .password)
         tf.accessibilityIdentifier = LoginAccessibilityID.passwordTextField
         return tf
@@ -43,6 +43,13 @@ final class LoginViewController: BaseViewController {
         title: "Giriş Yap",
         style: .primary,
         accessibilityIdentifier: LoginAccessibilityID.loginButton
+    )
+    
+    private lazy var registerButton = AppButton(
+        title: "Hesabınız yok mu? Kayıt Ol",
+        style: .text,
+        isUnderlined: true,
+        accessibilityIdentifier: LoginAccessibilityID.registerButton
     )
 
     // MARK: - Lifecycle
@@ -65,34 +72,41 @@ final class LoginViewController: BaseViewController {
             emailTextField,
             passwordTextField,
             forgotPasswordButton,
-            loginButton
+            loginButton,
+            registerButton
         )
 
         emailTextField.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(24)
-            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(DesignSystem.Spacing.lg)
+            $0.leading.trailing.equalToSuperview().inset(DesignSystem.Spacing.md)
         }
 
         passwordTextField.snp.makeConstraints {
-            $0.top.equalTo(emailTextField.snp.bottom).offset(16)
-            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.top.equalTo(emailTextField.snp.bottom).offset(DesignSystem.Spacing.md)
+            $0.leading.trailing.equalToSuperview().inset(DesignSystem.Spacing.md)
         }
 
         forgotPasswordButton.snp.makeConstraints {
-            $0.top.equalTo(passwordTextField.snp.bottom).offset(8)
-            $0.leading.equalToSuperview().offset(16)
+            $0.top.equalTo(passwordTextField.snp.bottom).offset(DesignSystem.Spacing.xs)
+            $0.leading.equalToSuperview().offset(DesignSystem.Spacing.md)
         }
 
         loginButton.snp.makeConstraints {
-            $0.top.equalTo(forgotPasswordButton.snp.bottom).offset(24)
-            $0.leading.trailing.equalToSuperview().inset(16)
-            $0.height.equalTo(56)
+            $0.top.equalTo(forgotPasswordButton.snp.bottom).offset(DesignSystem.Spacing.lg)
+            $0.leading.trailing.equalToSuperview().inset(DesignSystem.Spacing.md)
+            $0.height.equalTo(DesignSystem.ButtonSize.md)
+        }
+        
+        registerButton.snp.makeConstraints {
+            $0.top.equalTo(loginButton.snp.bottom).offset(DesignSystem.Spacing.xs)
+            $0.trailing.equalToSuperview().inset(DesignSystem.Spacing.md)
         }
     }
 
     private func setupActions() {
         loginButton.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
         forgotPasswordButton.addTarget(self, action: #selector(forgotTapped), for: .touchUpInside)
+        registerButton.addTarget(self, action: #selector(signupTapped), for: .touchUpInside)
     }
 
     // MARK: - Actions
@@ -107,6 +121,10 @@ final class LoginViewController: BaseViewController {
 
     @objc private func forgotTapped() {
         presenter.forgotPasswordTapped()
+    }
+    
+    @objc private func signupTapped() {
+        presenter.signupTapped()
     }
 }
 
@@ -132,6 +150,10 @@ private class MockLoginPresenter: LoginPresenterProtocol {
     
     func forgotPasswordTapped() {
         print("Preview: forgot password tapped")
+    }
+    
+    func signupTapped() {
+        print("Preview: signup tapped")
     }
 }
 

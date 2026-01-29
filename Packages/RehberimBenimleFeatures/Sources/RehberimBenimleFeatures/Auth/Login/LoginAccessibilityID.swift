@@ -11,4 +11,5 @@ public enum LoginAccessibilityID {
     public static let passwordTextField = "login_password_textfield"
     public static let loginButton = "login_button"
     public static let forgotPasswordButton = "forgot_password_button"
+    public static let registerButton = "register_button"
 }

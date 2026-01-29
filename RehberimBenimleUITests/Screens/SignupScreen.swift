@@ -10,10 +10,6 @@ import RehberimBenimleFeatures
 
 final class SignupScreen: BaseScreen {
     
-    var userDropdown: XCUIElement {
-        app.buttons[SignupAccessibilityID.userDropDown]
-    }
-    
     var fullNameTextField: XCUIElement {
         app.textFields[SignupAccessibilityID.fullNameTextField]
     }
@@ -45,7 +41,7 @@ final class SignupScreen: BaseScreen {
         password: String,
         confirmPassword: String
     ) {
-        selectItem(role, from: userDropdown)
+        selectSegment(role)
         typeText(fullName, into: fullNameTextField)
         typeText(email, into: emailTextField)
         typeText(password, into: passwordTextField)

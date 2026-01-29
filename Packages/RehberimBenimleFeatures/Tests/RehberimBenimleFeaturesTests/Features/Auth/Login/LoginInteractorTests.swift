@@ -23,7 +23,7 @@ struct LoginInteractorTests {
     @Test("Login successfully calls auth service with credentials")
     func test_LoginInteractor_login_callsAuthService_withCorrectParameters() async throws {
         // When
-        try await interactor.login(email: "", password: "")
+        _ = try await interactor.login(email: "", password: "")
         
         // Then
         #expect(await authService.getIsLoginCalled())
@@ -34,7 +34,7 @@ struct LoginInteractorTests {
         await authService.setShouldReturnError(true)
         
         do {
-            try await interactor.login(email: "", password: "")
+            _ = try await interactor.login(email: "", password: "")
             Issue.record("Expected error but none thrown")
         } catch LoginError.invalidCredentials {
 

@@ -15,7 +15,7 @@ protocol SignupValidatorProtocol {
 struct SignupValidator: SignupValidatorProtocol {
     func validate(role: UserType?, fullName: String?, email: String?, password: String?, confirmPassword: String?) throws -> (role: String, fullName: String, email: String, password: String) {
         
-        guard let role, role.isValid else {
+        guard let role else {
             throw ValidationError.notSelected(field: "Kullanıcı Türü")
         }
         
@@ -32,7 +32,7 @@ struct SignupValidator: SignupValidatorProtocol {
         
         try confirmPassword.validateConfirmPassword(matches: password)
         
-        return (role.itemTitle, fullName, email, password)
+        return (role.title, fullName, email, password)
         
     }
 }

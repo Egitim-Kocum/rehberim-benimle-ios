@@ -47,4 +47,11 @@ class BaseScreen {
         let doneButton = app.toolbars.buttons["Tamam"]
         doneButton.tap()
     }
+    
+    func selectSegment(_ title: String) {
+        
+        let button = app.buttons[title]
+        
+        button.tap()
+    }
 }

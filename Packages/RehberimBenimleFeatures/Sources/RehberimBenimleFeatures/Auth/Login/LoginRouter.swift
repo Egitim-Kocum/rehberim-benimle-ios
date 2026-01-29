@@ -18,8 +18,6 @@ final class LoginRouter: LoginRouterProtocol {
             print("Student Infos")
         case .instructor:
             print("Instructor Infos")
-        default:
-            break
         }
     }
     
@@ -29,5 +27,9 @@ final class LoginRouter: LoginRouterProtocol {
     
     func navigateToForgotPassword() {
         // TODO: push forgot password
+    }
+    
+    func navigateToSignup() {
+        viewController?.navigationController?.setViewControllers([SignupBuilder.build()], animated: false)
     }
 }

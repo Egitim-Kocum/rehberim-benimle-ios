@@ -25,15 +25,15 @@ struct SignupRouterTests {
     }
     
     @Test("Should navigate to Login")
-    func test_StudentSignupRouter_navigateToLogin_pushesLoginViewController() {
+    func test_StudentSignupRouter_navigateToLogin_setsLoginViewController() {
         // When
         router.navigateToLogin()
         
         // Then
-        let pushedVC = navigationController.pushedViewController
+        #expect(navigationController.setViewControllersCalled == true)
         
-        #expect(pushedVC != nil)
-        #expect(pushedVC is LoginViewController)
+        let rootVC = navigationController.lastSetViewControllers?.first
+        #expect(rootVC is LoginViewController)
     }
     // TODO: This will be implemented after Infos screens
 }
